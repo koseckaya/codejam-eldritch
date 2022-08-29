@@ -2,9 +2,9 @@ import {
     brownCards,
     blueCards,
     greenCards
-}  from './data/mythicCards/index.js' 
+} from './data/mythicCards/index.js'
 import { getRequirementsForDeck, getShuffledDeckBySize } from './helpers/deck.js'
-import { getSliceCards, shuffleCards } from  './helpers/randomizer.js'
+import { getSliceCards, shuffleCards } from './helpers/randomizer.js'
 
 
 
@@ -17,17 +17,17 @@ const GameDesk = (config) => {
         finalGameDeck = generateDesk()
         bind()
     }
-     function generateDesk() {
+    function generateDesk() {
         let requirements = getRequirementsForDeck(ancientObject)
-   
+
         let greenAvailableDeck = getShuffledDeckBySize(greenCards, requirements.greenCards, difficult)
         let brownAvailableDeck = getShuffledDeckBySize(brownCards, requirements.brownCards, difficult)
         let blueAvailableDeck = getShuffledDeckBySize(blueCards, requirements.blueCards, difficult)
- 
+
         let firstGreenSlice = getSliceCards(greenAvailableDeck, ancientObject.firstStage.greenCards)
         let firstBrownSlice = getSliceCards(brownAvailableDeck, ancientObject.firstStage.brownCards)
         let firstBlueSlice = getSliceCards(blueAvailableDeck, ancientObject.firstStage.blueCards)
-     
+
         let firstStageDeck = [
             ...firstGreenSlice.result,
             ...firstBrownSlice.result,
@@ -46,14 +46,23 @@ const GameDesk = (config) => {
             ...secondBrownSlice.rest,
             ...secondBlueSlice.rest
         ]
-     
+
         let finalDeck = []
         finalDeck.push(...shuffleCards(firstStageDeck))
         finalDeck.push(...shuffleCards(secondStageDeck))
         finalDeck.push(...shuffleCards(thirdStageDeck))
-    
-        
+
+
         return finalDeck
+    }
+
+    function setPreloadImage() {
+        if (finalGameDeck && finalGameDeck[0]) {
+            let nextCard = finalGameDeck[0];
+            let img = new Image();
+            let cardUrl = `assets/MythicCards/${nextCard.color}/${nextCard.cardFace}`;
+            img.src = cardUrl;
+        }
     }
     function handleCardPackClick() {
         if (finalGameDeck.length === 1) {
@@ -65,18 +74,20 @@ const GameDesk = (config) => {
         let cardUrl = `url(assets/MythicCards/${activeCard.color}/${activeCard.cardFace})`
         document.querySelector('.current-card--img').style.backgroundImage = cardUrl
         handleChange(activeCard)
-        
+        setPreloadImage();
     }
     function resetDesk() {
-          document.querySelector('.card-pack--img').classList.add('card-pack-bg')
+        document.querySelector('.card-pack--img').classList.add('card-pack-bg')
         document.querySelector('.current-card--img').style.backgroundImage = 'none'
     }
 
     function bind() {
         const cardPackEl = document.querySelector('.card-pack')
         cardPackEl.addEventListener('click', handleCardPackClick)
+
+        setPreloadImage();
     }
-    
+
 
     return {
         init,
