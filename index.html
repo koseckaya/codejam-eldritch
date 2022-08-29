@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>codejam</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>codejam</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="settings-block">
+                <div class="ancients-container">
+                    <span class="ancients-title">Select Enemy:</span>
+                    <div class="ancients"></div>
+                    <span class="ancients-error"></span>
+                </div>
+
+                <div class="complexity-container">
+                    <span class="complexity-title">Select Difficult:</span>
+                    <div class="complexity"></div>
+                    <span class="complexity-error"></span>
+                </div>
+                <div class="controls">
+                    <button class="start">Start</button>
+                    <button class="reset hide">Reset</button>
+                </div>
+            </div>
+            <div class="desk">
+                <div class="cards">
+                    <div class="card-pack">
+                        <div class="card-pack--img card-pack-bg"></div>
+                    </div>
+                    <div class="current-card">
+                        <div class="current-card--img"></div>
+                    </div>
+                </div>
+
+                <div class="state"></div>
+            </div>
+        </div>
+        <script type="module" src="app.js"></script>
+    </body>
 </html>

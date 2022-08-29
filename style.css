@@ -1,0 +1,271 @@
+body{
+    background: url(./assets/home.png);
+     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: flex;
+    height: 100vh;
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.container.game-started .ancients{
+    justify-content: center;
+    padding: 0;
+}
+.container.game-started .ancient.active{
+    box-shadow: none;
+      
+}
+.container.game-started  .settings-block{
+    justify-content: space-between;
+}
+.desk{
+    display: none;
+}
+.container.game-started .card-pack,.container.game-started  .current-card{
+    /* padding: 0; */
+}
+.container.game-started .desk{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+      flex-shrink: 0;
+      align-items: center;
+      padding-bottom: 30px;
+      font-size: 30px;
+      color: aliceblue;
+      width: 60%;
+}
+.settings-block{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: space-around;
+}
+.settings-block.game-started{
+    width: 300px;
+}
+.ancients{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+.ancient{
+    margin: 10px;
+    height: 100%;
+      height: fit-content;
+    border-radius: 10px;
+    transition: all 0.5s linear;
+}
+.ancient:hover{
+    transform: scale(1.05);
+}
+
+.game-started .ancient.active:hover,
+.game-started .complexity .btn.active:hover {
+    transform: none;
+}
+
+.ancient.active img{
+    transform: translateY(0);
+    box-shadow: 0px 10px 30px 4px rgb(173 11 11);
+}
+.ancient img{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 15px;
+}
+.ancients-title, .complexity-title {
+    color: white;
+    font-size: 24px;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.ancients-error, .complexity-error {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f90e0e;
+    font-size: 20px;
+    margin-left: 10px;
+    width: 0px;
+}
+
+.complexity{
+    display: flex;
+    margin: 10px 0px;
+}
+.controls{
+    display: flex;
+    justify-content: center;
+}
+.controls button{
+    cursor: pointer;
+    margin: 15px;
+    padding: 10px;
+    width: 100px;
+    color: aliceblue;
+    background: #000;
+    text-transform: uppercase;
+    transition: all 0.3s linear;
+    border-radius: 2px;
+    border: none;
+}
+.controls button:hover{
+     transform: scale(1.1); 
+ 
+}
+.btn{
+    margin: 0 15px;
+    transition: all 0.5s linear;
+}
+.cards{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ===================*/
+.btn {
+  display: block;
+  width: 140px;
+  padding: 10px 25px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 2px;
+  color: aliceblue;
+  background: #000;
+  box-shadow: 0 10px 20px -5px #000;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.btn span{
+    z-index: 5;
+    color: aliceblue;
+    text-transform: uppercase;
+    font-size: 18px;
+    transition: all 0.3s linear;
+}
+.btn:hover span{
+    transform: scale(1.3);
+}
+.btn:hover {
+    transform: scale(1.1);
+}
+button:hover:before {
+  transform: scale(1.3);
+}
+.btn-diff.active {
+ 
+    box-shadow: 0px 10px 30px 4px rgb(173 11 11);
+}
+
+.card-pack, .current-card, .state{
+    width: 33%;
+    padding: 30px;
+}
+.card-pack, .current-card{
+    height: 65%;
+    transition: transform 0.5s linear;
+    margin: 15px;
+}
+.card-pack--img, .current-card--img{
+    width: 270px;
+    height: 400px;
+    margin: 0 auto;
+}
+.current-card--img{
+    background-size: cover;
+    cursor: pointer;
+}
+.card-pack-bg, .current-card--img {
+    border-radius: 15px;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    filter: brightness(0.9);
+}
+.card-pack img, .current-card img{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.state-desk{
+    color: aliceblue;
+    background-color: (255, 255, 255, 13%);
+    display: flex;
+    flex-direction: column;
+}
+.state-first, .state-second, .state-third{
+    display: flex;
+}
+.state-item{
+    width: 20px;
+    height: 20px;
+    background: rgb(114, 114, 114);
+    margin: 10px;
+    text-align: center;
+  justify-content: flex-end; 
+  align-items: center;
+      border-radius: 2px;
+}
+.state-item{
+     width: 30px;
+    height: 30px;
+    background: rgb(114, 114, 114);
+}
+.state-first--green, .state-second--green, .state-third--green{
+    background-color: #39591b;
+}
+.state-first--brown, .state-second--brown, .state-third--brown{
+    background-color: #a67b00;
+}
+.state-first--blue, .state-second--blue, .state-third--blue{
+    background-color: #4b579f;
+}
+.hide{
+    display: none;
+    opacity: 0;
+}
+
+.card-pack-bg{
+    background-image: url('./assets/mythicCardBackground.png');
+}
+
+.card-animate{
+    transform: translateX(50px);
+
+}
+
+@media (max-width: 1024px) {
+    .complexity{
+        margin-top: 230px;
+    }
+}
+@media (max-width: 768px) {
+    .card-pack, .current-card{
+        margin: 0;
+    }
+    .cards{
+        flex-direction: column;
+    }
+    .card-pack--img, .current-card--img {
+        width: 220px;
+        height: 324px;}
+    .card-pack, .current-card, .state{
+        padding: 5px;
+    }
+    .container.game-started .desk{
+            width: auto;
+            justify-content: flex-start;
+            align-items: start;
+    }
+}
